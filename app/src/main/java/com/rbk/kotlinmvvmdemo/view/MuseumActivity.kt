@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,8 +30,18 @@ class MuseumActivity : AppCompatActivity() {
     //ui
     private fun setupUI() {
         adapter = MuseumAdapter(viewModel.museums.value ?: emptyList())
+        adapter.apply {
+            musuemClick = {
+                itemClick(it)
+            }
+        }
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+    }
+
+
+    private fun itemClick(watches: Museum) {
+        Toast.makeText(this, watches.phone, Toast.LENGTH_SHORT).show()
     }
 
     //view model

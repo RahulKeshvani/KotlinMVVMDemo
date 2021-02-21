@@ -12,10 +12,12 @@ import kotlinx.android.synthetic.main.row_museum.view.*
 class MuseumAdapter(private var museums: List<Museum>) :
     RecyclerView.Adapter<MuseumAdapter.MViewHolder>() {
 
+    var musuemClick : ((Museum) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): MViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.row_museum, parent, false)
-        return MViewHolder(view)
+        return MViewHolder(view,musuemClick)
     }
 
     override fun onBindViewHolder(vh: MViewHolder, position: Int) {
@@ -31,7 +33,7 @@ class MuseumAdapter(private var museums: List<Museum>) :
         notifyDataSetChanged()
     }
 
-    class MViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class MViewHolder(view: View, var musuemClick : ((Museum) -> Unit)? = null) : RecyclerView.ViewHolder(view) {
         private val textViewName: TextView = view.textViewName
         private val textViewLink: TextView = view.textViewLink
         private val textViewAddress: TextView = view.textViewAddress
@@ -49,7 +51,7 @@ class MuseumAdapter(private var museums: List<Museum>) :
                 textViewLink.text = ""
             }
             if(museum.city!=null && museum.state!=null){
-                textViewAddress.text = museum.city.plus(museum.state)
+                textViewAddress.text = museum.city.plus(","+museum.state)
             }else{
                 textViewAddress.text = ""
             }
@@ -57,6 +59,10 @@ class MuseumAdapter(private var museums: List<Museum>) :
                 textViewEmail.text = museum.phone
             }else{
                 textViewEmail.text = ""
+            }
+
+            textViewEmail.setOnClickListener {
+                musuemClick?.invoke(museum)
             }
 
 
