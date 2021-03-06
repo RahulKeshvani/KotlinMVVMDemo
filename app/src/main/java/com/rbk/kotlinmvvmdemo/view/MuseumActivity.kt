@@ -41,7 +41,7 @@ class MuseumActivity : AppCompatActivity() {
 
 
     private fun itemClick(watches: Museum) {
-        Toast.makeText(this, watches.phone, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Hi|"+watches.phone, Toast.LENGTH_SHORT).show()
     }
 
     //view model
