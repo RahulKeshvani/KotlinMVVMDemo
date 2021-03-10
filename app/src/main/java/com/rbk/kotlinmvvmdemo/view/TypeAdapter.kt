@@ -5,18 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.rbk.kotlinmvvmdemo.model.Museum
 import com.rbk.kotlinmvvmdemo.R
+import com.rbk.kotlinmvvmdemo.model.OptionType
 import kotlinx.android.synthetic.main.row_museum.view.*
 
-class TypeAdapter(private var museums: List<Museum>) :
+class TypeAdapter(private var museums: List<OptionType>) :
     RecyclerView.Adapter<TypeAdapter.MViewHolder>() {
 
-    var musuemClick : ((Museum) -> Unit)? = null
+    var musuemClick : ((OptionType) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): MViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.row_museum, parent, false)
+            .inflate(R.layout.row_type, parent, false)
         return MViewHolder(view,musuemClick)
     }
 
@@ -28,40 +28,22 @@ class TypeAdapter(private var museums: List<Museum>) :
         return museums.size
     }
 
-    fun update(data: List<Museum>) {
+    fun update(data: List<OptionType>) {
         museums = data
         notifyDataSetChanged()
     }
 
-    class MViewHolder(view: View, var musuemClick : ((Museum) -> Unit)? = null) : RecyclerView.ViewHolder(view) {
+    class MViewHolder(view: View, var musuemClick : ((OptionType) -> Unit)? = null) : RecyclerView.ViewHolder(view) {
         private val textViewName: TextView = view.textViewName
-        private val textViewLink: TextView = view.textViewLink
-        private val textViewAddress: TextView = view.textViewAddress
-        private val textViewEmail: TextView = view.textViewEmail
 
-        fun bind(museum: Museum) {
+        fun bind(museum: OptionType) {
             if(museum.name!=null){
                 textViewName.text = museum.name.capitalize()
             }else{
                 textViewName.text = ""
             }
-            if(museum.brewery_type!=null){
-                textViewLink.text = museum.brewery_type
-            }else{
-                textViewLink.text = ""
-            }
-            if(museum.city!=null && museum.state!=null){
-                textViewAddress.text = museum.city.plus(","+museum.state)
-            }else{
-                textViewAddress.text = ""
-            }
-            if(museum.phone!=null ){
-                textViewEmail.text = museum.phone
-            }else{
-                textViewEmail.text = ""
-            }
 
-            textViewEmail.setOnClickListener {
+            textViewName.setOnClickListener {
                 musuemClick?.invoke(museum)
             }
 

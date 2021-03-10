@@ -5,12 +5,17 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp"
-        android:layout_margin="4dp">
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/colorLightGray"
+        app:cardElevation="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
+            android:padding="10dp"
             android:layout_height="match_parent">
 
         <ImageView
