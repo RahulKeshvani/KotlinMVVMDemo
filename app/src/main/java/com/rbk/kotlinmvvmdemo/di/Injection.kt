@@ -5,7 +5,7 @@ import com.rbk.kotlinmvvmdemo.data.ApiClient
 import com.rbk.kotlinmvvmdemo.data.MuseumRemoteDataSource
 import com.rbk.kotlinmvvmdemo.model.MuseumDataSource
 import com.rbk.kotlinmvvmdemo.model.MuseumRepository
-import com.emedinaa.kotlinmvvm.viewmodel.ViewModelFactory
+import com.rbk.kotlinmvvmdemo.viewmodel.ViewModelFactory
 
 object Injection {
 

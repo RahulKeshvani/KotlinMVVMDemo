@@ -6,8 +6,13 @@ import androidx.room.*
 @Dao
 interface TodoDao {
 
-//    @Query("SELECT * FROM Todo")
-//    val getall: List<Todo>
+
+    @Query("SELECT * FROM todo")
+    fun getAllTodos():List<Todo>
+
+    @Query("DELETE FROM todo")
+    fun removeAllTodos()
+
 
     @Insert
     fun insert(task: Todo)

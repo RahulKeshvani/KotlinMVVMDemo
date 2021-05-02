@@ -6,8 +6,11 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rbk.kotlinmvvmdemo.R
 import com.rbk.kotlinmvvmdemo.model.OptionType
-import kotlinx.android.synthetic.main.activity_museum.*
 import kotlinx.android.synthetic.main.activity_type_selection.*
+
+/**
+ * @author RBK
+ */
 
 class TypeSelectionActivity : AppCompatActivity() {
 
@@ -34,7 +37,7 @@ class TypeSelectionActivity : AppCompatActivity() {
     }
 
     private fun getDataPump():List<OptionType>{
-        var options=ArrayList<OptionType>()
+        val options=ArrayList<OptionType>()
         options.add(OptionType(1,"MVVM"))
         options.add(OptionType(2,"ROOM"))
         return options

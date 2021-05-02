@@ -1,5 +1,6 @@
 package com.rbk.kotlinmvvmdemo.view
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -71,6 +72,7 @@ class MuseumActivity : AppCompatActivity() {
         progressBar.visibility = visibility
     }
 
+    @SuppressLint("SetTextI18n")
     private val onMessageErrorObserver = Observer<Any> {
         Log.v(TAG, "onMessageError $it")
         layoutError.visibility = View.VISIBLE

@@ -5,7 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
 
-//data class Museum(val id: Int, val name: String, val photo: String) : Serializable
 data class Museum(
     val id: Int,
     val name: String?=null,
@@ -23,14 +22,13 @@ data class Museum(
 @Entity
 data class Todo(
     @PrimaryKey(autoGenerate = true)
-    var id: Int,
+    var id: Int?=null,
 
     @ColumnInfo(name = "name")
     var name: String?=null,
 
     @ColumnInfo(name = "type")
     var type: String?=null,
-
 
     @ColumnInfo(name = "priority")
     var priority: Int?=null,

@@ -2,7 +2,7 @@ package com.rbk.kotlinmvvmdemo.model
 
 import com.rbk.kotlinmvvmdemo.data.OperationCallback
 /**
- * @author Eduardo Medina
+ * @author RBK
  */
 class MuseumRepository(private val museumDataSource: MuseumDataSource) {
 

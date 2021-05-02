@@ -8,7 +8,7 @@ import com.rbk.kotlinmvvmdemo.model.Museum
 import com.rbk.kotlinmvvmdemo.model.MuseumRepository
 
 /**
- * @author Eduardo Medina
+ * @author RBK
  */
 class MuseumViewModel(private val repository: MuseumRepository) : ViewModel() {
 

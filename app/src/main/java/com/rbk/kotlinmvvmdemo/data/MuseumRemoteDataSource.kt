@@ -36,8 +36,6 @@ class MuseumRemoteDataSource(apiClient: ApiClient) : MuseumDataSource {
     }
 
     override fun cancel() {
-        call?.let {
-            it.cancel()
-        }
+        call?.cancel()
     }
 }

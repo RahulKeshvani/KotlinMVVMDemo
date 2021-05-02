@@ -28,11 +28,6 @@ class TypeAdapter(private var museums: List<OptionType>) :
         return museums.size
     }
 
-    fun update(data: List<OptionType>) {
-        museums = data
-        notifyDataSetChanged()
-    }
-
     class MViewHolder(view: View, var musuemClick : ((OptionType) -> Unit)? = null) : RecyclerView.ViewHolder(view) {
         private val textViewName: TextView = view.textViewName
 

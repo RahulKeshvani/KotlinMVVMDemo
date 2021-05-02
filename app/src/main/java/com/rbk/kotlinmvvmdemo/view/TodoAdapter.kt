@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.rbk.kotlinmvvmdemo.R
-import com.rbk.kotlinmvvmdemo.model.OptionType
+import com.rbk.kotlinmvvmdemo.model.Todo
 import kotlinx.android.synthetic.main.row_museum.view.*
 
-class TypeAdapter(private var museums: List<OptionType>) :
-    RecyclerView.Adapter<TypeAdapter.MViewHolder>() {
+class TodoAdapter(private var museums: List<Todo>) :
+    RecyclerView.Adapter<TodoAdapter.MViewHolder>() {
 
-    var musuemClick : ((OptionType) -> Unit)? = null
+    var musuemClick : ((Todo) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): MViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -28,17 +28,17 @@ class TypeAdapter(private var museums: List<OptionType>) :
         return museums.size
     }
 
-    fun update(data: List<OptionType>) {
+    fun update(data: List<Todo>) {
         museums = data
         notifyDataSetChanged()
     }
 
-    class MViewHolder(view: View, var musuemClick : ((OptionType) -> Unit)? = null) : RecyclerView.ViewHolder(view) {
+    class MViewHolder(view: View, var musuemClick : ((Todo) -> Unit)? = null) : RecyclerView.ViewHolder(view) {
         private val textViewName: TextView = view.textViewName
 
-        fun bind(museum: OptionType) {
+        fun bind(museum: Todo) {
             if(museum.name!=null){
-                textViewName.text = museum.name.capitalize()
+                textViewName.text = museum.name?.capitalize()
             }else{
                 textViewName.text = ""
             }
